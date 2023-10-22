@@ -43,7 +43,7 @@
         transition: 600ms;
 
         font-weight: bolder;
-        color: var(--plug-primary-color);
+        color: var(--crafts-primary-color);
 
         &:hover {
           letter-spacing: 2px;
@@ -51,15 +51,9 @@
       }
     }
 
-    @media only screen and (max-width: 600px) {
-      .homepage__category {
-        height: 40vh !important;
-      }
-    }
-
     @media only screen and (min-width: 600px) {
 
-      .categories__hearder {
+      .home__hearder {
         height: 10vh !important;
         position: relative;
         top: 300px;
@@ -69,6 +63,17 @@
     }
     .homepage__cards {
       height: auto;
+
+      .cards {
+        flex: 0 0 auto;
+        width: 20%;
+        border: double #adadad;
+        border-radius: 10%;
+        margin-left: 25px;
+        margin-right: 25px;
+        align-content: center;
+      }
+
     }
   }
 }

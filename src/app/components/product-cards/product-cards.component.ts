@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Products } from 'src/app/models/products';
 
 @Component({
   selector: 'app-product-cards',
@@ -6,26 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./product-cards.component.scss']
 })
 export class ProductCardsComponent implements OnInit {
-  @Input() products = []
+  @Input() productName?: string;
+  @Input() productRate?: string;
 
-  // productCards = [
-  //   {
-  //     name: 'Papers & Ribbons',
-  //     rate: 'Loved it,'
-  //   },
-  //   {
-  //     name: 'Card materials',
-  //     rate: 'Loved it,'
-  //   },
-  //   {
-  //     name: 'Punches and dies',
-  //     rate: 'Loved it,'
-  //   },
-  //   {
-  //     name: 'Card kits',
-  //     rate: 'Loved it,'
-  //   }
-  // ]
   constructor() { }
 
   ngOnInit(): void {

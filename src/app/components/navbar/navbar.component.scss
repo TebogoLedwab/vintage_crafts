@@ -10,9 +10,13 @@ nav {
 
 
 .navbar-light .nav-item:hover .nav-link {
-  color: var(--plug-primary-color);
+  color: var(--crafts-primary-color);
 }
 
 .nav-item {
   float: right;
+}
+
+.logged {
+  margin-left: auto;
 }

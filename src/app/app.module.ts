@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AuthGuard } from './guards/auth.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalModule, BsModalService } from 'ngx-bootstrap/modal'
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -23,9 +24,13 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    BsModalService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

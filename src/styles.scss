@@ -11,13 +11,13 @@
 }
 
 :root {
-  --plug-primary-color: #aa64eb;
-  --plug-background-color: #fafafa;
+  --crafts-primary-color: #aa64eb;
+  --crafts-background-color: #fafafa;
   --text-color: #222222;
 }
 
 body {
-  background: var(--plug-background-color);
+  background: var(--crafts-background-color);
   color: var(--text-color);
 }
 

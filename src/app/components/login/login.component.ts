@@ -11,69 +11,46 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  loginForm: FormGroup;
   modalRef?: BsModalRef;
+
   constructor(
     private _formBuilder: FormBuilder,
     private _router: Router,
-    private _authService: AuthService,
-    private modalService: BsModalService,
-  ) { }
-  model: ILogin = { userName: "admin", password: 1234 }
-
-  loginForm?: FormGroup<any>;
-  message?: string;
-  returnUrl?: string;
-
-  ngOnInit(): void {
+    private _modalService: BsModalService,
+  ) {
     this.loginForm = this._formBuilder.group({
       userName: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.returnUrl = '/dashboard';
-    this._authService.logout();
   }
 
-  get f() {
-    return this.loginForm?.controls;
-  }
-
+  ngOnInit(): void {}
 
   openModal(template: TemplateRef<any>) {
     this.close_modal();
 
     setTimeout(() => {
-      this.modalRef = this.modalService.show(template);
+      this.modalRef = this._modalService.show(template);
     }, 200);
   }
 
-
   close_modal() {
-    this.modalService.hide();
+    this._modalService.hide();
   }
 
   login() {
-    if (this.loginForm?.invalid) {
-      return;
-    } else {
-      const userNameControl = this.loginForm?.get('userName');
-      const passwordControl = this.loginForm?.get('password');
+    if (this.loginForm?.valid) {
+      const user: ILogin = this.loginForm.value as ILogin;
 
-      if (
-        userNameControl?.value === this.model.userName &&
-        passwordControl?.value === this.model.password
-      ) {
-        // this._toastr.success("Login successful");
-         console.log("Login successful");
+      console.log('Logging in with user:', user);
 
-        localStorage.setItem('isLoggedIn', "true");
-        localStorage.setItem('token', userNameControl?.value);
-        this._router.navigate([this.returnUrl]);
-      } else {
-        // this._toastr.error("Please check credentials.")
+      // After successful login, close modal and store user information in local storage
+      this._modalService.hide();
+      localStorage.setItem('currentUser', JSON.stringify(user));
 
-         this.message = "Please check your Username and password";
-      }
+      // Redirect to the dashboard
+      this._router.navigate(['/dash']);
     }
   }
 }

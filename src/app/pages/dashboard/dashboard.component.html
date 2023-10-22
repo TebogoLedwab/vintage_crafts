@@ -1,1 +1,24 @@
-<p>dashboard works!</p>
+<div class="container home__hearder text-center">
+  <h2 style="position: relative; top: 60px">Our Products</h2>
+</div>
+
+<div class="dashboard__content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 cards" *ngFor="let product of productCards">
+        <app-product-cards
+          [productName]="product.name"
+          [productRate]="product.rate"
+        ></app-product-cards>
+      </div>
+    </div>
+
+    <!-- <ng-template #noSkill>
+      <div class="row text-center no__results">
+        <div class="col-md-3 text-center animate__animated animate__fadeIn">
+          <img src="../../../assets/images/empty.gif" alt="No results" />
+        </div>
+      </div>
+    </ng-template> -->
+  </div>
+</div>

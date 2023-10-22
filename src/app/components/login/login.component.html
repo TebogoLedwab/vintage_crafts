@@ -4,24 +4,19 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body text-center mt-3">
-  <form>
+<div class="modal-body text-center ">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
     <fieldset>
-      <div class="form-group">
-        <input type="email" class="form-control shadow-none" id="email" name="email" #email aria-describedby="email"
-          placeholder="Enter email"  />
-        <!-- <small id="email" class="form-text text-muted text-left">Email incorrect</small> -->
+      <div class="form-group fields">
+        <input type="userName" class="form-control shadow-none" id="userName" name="userName" formControlName="userName"
+          aria-describedby="userName" placeholder="Enter username" />
       </div>
       <div class="form-group">
-        <input type="password" class="form-control shadow-none" id="password" name="password" #password
+        <input type="password" class="form-control shadow-none" id="password" name="password" formControlName="password"
           placeholder="Password" />
-        <!-- <small id="password" class="form-text text-muted text-left">Password should be bla bla bla</small> -->
-      </div>
-      <div class="text-right">
-        <i id="exampleInputPassword1" class="text-primary">Dont have an account? Sign Up</i>
       </div>
       <br />
-      <button type="button" class="btn btn-primary" (click)="login()">
+      <button type="button" class="btn btn-primary"type="submit" [disabled]="loginForm.invalid">
         Submit
       </button>
     </fieldset>
