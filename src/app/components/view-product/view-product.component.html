@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <h4 class="modal-title">Rate Our Product</h4>
+  <button
+    type="button"
+    class="close pull-right"
+    aria-label="Close"
+    (click)="closeModal()"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body text-center">
+  <div class="product-name">
+    <small class="h3 text-muted">Papers & Ribbons</small>
+  </div>
+  <div class="control-section">
+    <div id="default-rating-control">
+      <div class="rating-content">
+        <input
+          ejs-rating
+          id="rating"
+          showTooltip="true"
+          [tooltipTemplate]="tooltipTemplate"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="rate-button">
+    <button type="button" class="btn btn-primary" type="submit">Rate</button>
+  </div>
+</div>
+<ng-template #tooltipTemplate let-data="">
+  <div [ngSwitch]="data.value">
+    <span *ngSwitchCase="1">Never Again</span>
+    <span *ngSwitchCase="2">Nah, Thanks</span>
+    <span *ngSwitchCase="3">Meh</span>
+    <span *ngSwitchCase="4">It was OK</span>
+    <span *ngSwitchDefault>Loved it</span>
+  </div>
+</ng-template>

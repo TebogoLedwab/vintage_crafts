@@ -16,6 +16,19 @@
   </div>
 
   <div class="user__footer text-center">
-    <button class="btn btn-outline-primary">View product</button>
+    <button
+      class="btn btn-outline-primary"
+      (click)="viewProduct(view)"
+    >
+      View product
+    </button>
   </div>
 </div>
+
+<!-- <ng-template #login>
+  <app-login></app-login>
+</ng-template> -->
+
+<ng-template #view>
+  <app-view-product></app-view-product>
+</ng-template>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-homepage',
@@ -6,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
+  isUserLoggedIn: boolean = false;
 
   productCards = [
     {
@@ -25,7 +27,12 @@ export class HomepageComponent implements OnInit {
       rate: 'Loved it'
     }
   ]
-  constructor() { }
+  constructor(
+    public _authService: AuthService
+  ) {
+    // Check if the user is already logged in
+    this.isUserLoggedIn = _authService.isAuthenticated();
+  }
 
   ngOnInit(): void {
   }

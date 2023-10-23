@@ -10,6 +10,11 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductCardsComponent } from './components/product-cards/product-cards.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
+import { ViewProductComponent } from './components/view-product/view-product.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { RatingModule } from '@syncfusion/ej2-angular-inputs';
+
+
 
 @NgModule({
   declarations: [
@@ -19,13 +24,16 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
     NavbarComponent,
     ProductCardsComponent,
     HomepageComponent,
+    ViewProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ModalModule
+    ModalModule,
+    MatTooltipModule,
+    RatingModule
   ],
   providers: [
     AuthGuard,
